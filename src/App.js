@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import Name from './Name';
 
+// Es6 modules
+// commonjs module
+// JSX
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // const h1 = React.createElement('h1', {}, 'Hello React');
+    // const img = React.createElement('img', { width: 100, height: 100, src: 'https://4.img-dpreview.com/files/p/E~TS1180x0~articles/3925134721/0266554465.jpeg' });
+    // const div = React.createElement('div', {}, [h1, img]);
+    // return div;
+
+    return <div>
+        <Header />
+        <h1>Hello React</h1>
+        {/* property */}
+        <Name personName="John" age="20"/>
+        <Name personName="Joseph" age="21" />
+        <img width="200" height="200" src="https://4.img-dpreview.com/files/p/E~TS1180x0~articles/3925134721/0266554465.jpeg" />
+        <Footer />
     </div>
-  );
 }
 
 export default App;
+
