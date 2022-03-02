@@ -16,5 +16,6 @@ export default Footer;
 // components
 // entry file
 // props
+// interpolation
 // functional component
 // class component
