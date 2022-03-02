@@ -19,3 +19,10 @@ export default Footer;
 // interpolation
 // functional component
 // class component
+// state
+// props class component
+// update state
+// styles
+// integrate bootstrap
+// rendering list item
+// rendering tables
