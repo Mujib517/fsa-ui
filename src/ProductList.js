@@ -1,31 +1,15 @@
+import ProductItem from "./ProductItem";
+
+// container 
 const ProductList = () => {
     const products = [
-        { id: 1, brand: 'Apple', model: 'Iphone 13', price: 1000 },
-        { id: 2, brand: 'Apple', model: 'Iphone 12', price: 900 },
-        { id: 3, brand: 'Apple', model: 'Iphone 12 Max', price: 1200 }
+        { id: 1, brand: 'Apple', model: 'Iphone 13', inStock: true, price: 1000, img: 'https://m.media-amazon.com/images/I/61l9ppRIiqL._SL1500_.jpg' },
+        { id: 2, brand: 'Apple', model: 'Iphone 12', inStock: false, price: 900, img: 'https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/i/p/iphone-12-pro-blue-hero_1_5.png' },
+        { id: 3, brand: 'Apple', model: 'Iphone 12 Pro', inStock: true, price: 1200, img: 'https://m.media-amazon.com/images/I/71XXJC7V8tL.jpg' }
     ];
 
     return <div>
-        <table className="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                {products.map(product => {
-                    return <tr>
-                        <td>{product.id}</td>
-                        <td>{product.brand}</td>
-                        <td>{product.model}</td>
-                        <td>{product.price}</td>
-                    </tr>
-                })}
-            </tbody>
-        </table>
+        {products.map(item => <ProductItem key={item.id} product={item} />)}
     </div>
 }
 
