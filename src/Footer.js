@@ -26,3 +26,8 @@ export default Footer;
 // integrate bootstrap
 // rendering list item
 // rendering tables
+// Axios
+// Api calls
+// Loading gif
+// If Else conditional rendering
+// Error handling

@@ -13,17 +13,15 @@ class UserList extends React.Component {
 
     constructor() {
         super();
-        setTimeout(() => {
-            axios.get('https://api.github.com/users')
-                .then(res => {
-                    const data = res.data;
-                    this.setState({ loading: false, users: data, error: false });
-                })
-                .catch(err => {
-                    this.setState({ loading: false, error: true });
-                    console.log(err);
-                });
-        }, 1000);
+        axios.get('https://api.github.com/users')
+            .then(res => {
+                const data = res.data;
+                this.setState({ loading: false, users: data, error: false });
+            })
+            .catch(err => {
+                this.setState({ loading: false, error: true });
+                console.log(err);
+            });
     }
 
     render() {
