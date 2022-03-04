@@ -1,5 +1,4 @@
 import ProductItem from "./ProductItem";
-import ShouldRender from "./utils/ShouldRender";
 
 // container 
 const ProductList = () => {
@@ -17,13 +16,6 @@ const ProductList = () => {
     ];
 
     return <div>
-        <ShouldRender>
-            <h1>Hello</h1>
-            <h2>Hello 2</h2>
-            <h2>Hello 2</h2>
-            <h2>Hello 2</h2>
-            <h2>Hello 2</h2>
-        </ShouldRender>
         {products.map(item => <ProductItem key={item.id} product={item} onAdd={onAddCartClick} />)}
     </div>
 }
