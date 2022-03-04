@@ -3,6 +3,7 @@ import axios from 'axios';
 import User from './User';
 import ShouldRender from '../utils/ShouldRender';
 import Loader from '../utils/Loader';
+import Error from '../utils/Error';
 
 // container 
 // presentation
@@ -13,7 +14,7 @@ class UserList extends React.Component {
     constructor() {
         super();
         setTimeout(() => {
-            axios.get('https://api.github.com/users1')
+            axios.get('https://api.github.com/users')
                 .then(res => {
                     const data = res.data;
                     this.setState({ loading: false, users: data, error: false });
@@ -32,9 +33,7 @@ class UserList extends React.Component {
                 <Loader />
             </ShouldRender>
             <ShouldRender cond={this.state.error}>
-                <div className="col-md-8">
-                    <div class="alert alert-danger">Something went wrong. Try again</div>
-                </div>
+                <Error />
             </ShouldRender>
             {this.state.users.map(user => <User key={user.login} user={user} />)}
         </div>
