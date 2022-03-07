@@ -31,3 +31,5 @@ export default Footer;
 // Loading gif
 // If Else conditional rendering
 // Error handling
+// Routing
+// Forms
