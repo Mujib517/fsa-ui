@@ -6,11 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 function App() {
-    return <div>
-        <Header />
-        <AppRoutes />
-        <Footer />
-    </div>
+    return <AppRoutes />
 }
 
 export default App;

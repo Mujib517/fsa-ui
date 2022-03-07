@@ -4,8 +4,11 @@ import Contact from './Contact';
 import About from './About';
 import UserList from './users/UserList';
 import NotFound from './NotFound';
+import Header from "./Header";
+import Footer from "./Footer";
 
 const AppRoutes = () => <BrowserRouter>
+    <Header />
     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -15,6 +18,7 @@ const AppRoutes = () => <BrowserRouter>
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
         <Route path="*" element={<NotFound />} />
     </Routes>
+    <Footer />
 </BrowserRouter>
 
 export default AppRoutes;
