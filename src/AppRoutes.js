@@ -7,6 +7,7 @@ import NotFound from './NotFound';
 import Header from "./Header";
 import Footer from "./Footer";
 import Register from "./Register";
+import Login from "./Login";
 
 const AppRoutes = () => <BrowserRouter>
     <Header />
@@ -18,6 +19,7 @@ const AppRoutes = () => <BrowserRouter>
         {/* <Route path="*" element={<Home />} /> */}
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
