@@ -18,6 +18,9 @@ function Header() {
                     <Link className="nav-link" to="/contact">Contact</Link>
                 </li>
             </ul>
+            <div>
+                <Link to="/register" class="btn btn-sm btn-danger">Register</Link>
+            </div>
         </div>
     </nav>
 }
