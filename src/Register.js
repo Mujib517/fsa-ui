@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React from 'react';
+import userService from './services/userService';
 import Error from './utils/Error';
 import ShouldRender from './utils/ShouldRender';
 
@@ -18,7 +18,7 @@ class Register extends React.Component {
     };
 
     onRegister = () => {
-        axios.post('https://fsa-jobs-api.herokuapp.com/api/users/signup', this.state.user)
+        userService.register(this.state.user)
             .then(res => {
                 this.setState({ firstName: '', lastName: '', email: '', password: '', success: true, error: false, userExists: false })
             })
