@@ -1,0 +1,13 @@
+.chip{
+    background-color: #000;
+    border-radius: 10px;
+    border:1px solid grey;
+    padding:2px;
+    color:#fff;
+    margin:3px;
+}
+
+.chip i{
+    margin:2px;
+    cursor: pointer;
+}

@@ -33,3 +33,10 @@ export default Footer;
 // Error handling
 // Routing
 // Forms
+// Update User skills, qualification degree
+// Users (recruiter)
+// logout
+// lifecycle 
+// hooks
+// context
+// deployment
