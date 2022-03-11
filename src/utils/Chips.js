@@ -12,6 +12,7 @@ class Chips extends React.Component {
             const skills = this.state.skills;
             if (skills.indexOf(e.target.value) === -1) {
                 skills.push(e.target.value);
+                this.props.onSkillsChange(skills);
                 this.setState({ skills });
             }
             e.target.value = '';
