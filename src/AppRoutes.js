@@ -8,6 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Register from "./Register";
 import Login from "./Login";
+import UpdateUser from "./UpdateUser";
 
 const AppRoutes = () => <BrowserRouter>
     <Header />
@@ -16,6 +17,7 @@ const AppRoutes = () => <BrowserRouter>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/users" element={<UserList />} />
+        <Route path="/users/update" element={<UpdateUser />} />
         {/* <Route path="*" element={<Home />} /> */}
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
         <Route path="/register" element={<Register />} />

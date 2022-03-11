@@ -2,9 +2,8 @@ import React from 'react';
 import './Chips.css'
 
 class Chips extends React.Component {
-
     state = {
-        skills: []
+        skills: this.props.skills
     };
 
     onEnter = (e) => {

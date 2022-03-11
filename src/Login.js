@@ -21,7 +21,7 @@ class Login extends React.Component {
         try {
             const res = await userService.login(this.state.user);
             userService.saveUser(res.data);
-            window.location.assign('/users');
+            window.location.assign('/users/update');
         } catch (e) {
             this.setState({ error: true });
             console.log(e, 'error');

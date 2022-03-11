@@ -20,5 +20,25 @@ const saveUser = (user) => {
     localStorage.setItem('user', JSON.stringify(user));
 }
 
+const update = (user) => {
+    const userFromLocalStorage = localStorage.getItem('user');
+    const json = JSON.parse(userFromLocalStorage) || {};
+    const token = json.token;
+    const headers = {
+        authorization: `Bearer ${token}`
+    };
+    return axios.put(`/api/users/${user.email}`, user, { headers });
+};
 
-export default { login, saveUser, register };
+const getUser = (email) => {
+    const userFromLocalStorage = localStorage.getItem('user');
+    const json = JSON.parse(userFromLocalStorage) || {};
+    const token = json.token;
+    const headers = {
+        authorization: `Bearer ${token}`
+    };
+    return axios.get(`/api/users/${email}`, { headers });
+};
+
+
+export default { login, saveUser, register, update, getUser };
