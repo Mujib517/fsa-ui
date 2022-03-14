@@ -8,7 +8,8 @@ class UpdateUser extends Component {
 
     constructor() {
         super();
-        userService.getUser('abc@gmail.com')
+        const user = userService.getUserFromStorage();
+        userService.getUser(user.email)
             .then(res => {
                 this.setState({ user: res.data });
             })
@@ -20,7 +21,7 @@ class UpdateUser extends Component {
 
     state = {
         user: {
-            email: 'abc@gmail.com',
+            email: '',
             firstName: '',
             lastName: '',
             qualification: '',

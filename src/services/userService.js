@@ -40,5 +40,9 @@ const getUser = (email) => {
     return axios.get(`/api/users/${email}`, { headers });
 };
 
+const getUserFromStorage = () => {
+    const data = localStorage.getItem('user');
+    return JSON.parse(data);
+}
 
-export default { login, saveUser, register, update, getUser };
+export default { login, saveUser, register, update, getUser, getUserFromStorage };
