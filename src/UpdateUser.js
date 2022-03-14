@@ -8,6 +8,12 @@ class UpdateUser extends Component {
 
     constructor() {
         super();
+
+        console.log('constructor...');
+    }
+
+    componentDidMount = () => {
+        console.log('componentDidMount...');
         const user = userService.getUserFromStorage();
         userService.getUser(user.email)
             .then(res => {
@@ -104,6 +110,18 @@ class UpdateUser extends Component {
             </div>
         </div>
     }
+
+    componentWillUnmount() {
+        console.log('unmounted');
+        // clean up
+    }
 }
 
 export default UpdateUser;
+
+// constructor      x1
+// componentDidMount x1
+// componentDidUpdate  xN
+// componentShouldUpdate xN
+// componentWillUnmount x1
+// getDerivedStateFromProps xN

@@ -6,6 +6,10 @@ class Chips extends React.Component {
         skills: this.props.skills
     };
 
+    static getDerivedStateFromProps(nextProps) {
+        return { skills: nextProps.skills };
+    }
+
     onEnter = (e) => {
         if (e.charCode === 13 || e.charCode === 32) {
             const skills = this.state.skills;

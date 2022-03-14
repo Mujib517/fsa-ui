@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import Register from "./Register";
 import Login from "./Login";
 import UpdateUser from "./UpdateUser";
+import AutoCounter from "./utils/AutoCounter";
 
 const AppRoutes = () => <BrowserRouter>
     <Header />
@@ -22,6 +23,7 @@ const AppRoutes = () => <BrowserRouter>
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/counter" element={<AutoCounter />} />
         <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
