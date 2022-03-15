@@ -1,45 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import User from './User';
-import ShouldRender from '../utils/ShouldRender';
-import Loader from '../utils/Loader';
+import { useEffect, useState } from "react";
+import userService from "../services/userService";
+import ShouldRender from "../utils/ShouldRender";
 import Error from '../utils/Error';
-import axios from 'axios';
+import User from "./User";
 
-// container 
-// presentation
 const UserList = () => {
 
-    // inital state
-    const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [userData, setUserData] = useState({ data: [], metadata: {} });
 
-    // componentDidMount
-    useEffect(() => {
-        axios.get('https://api.github.com/users')
-            .then(res => {
-                const data = res.data;
-                setUsers(data);
-                setLoading(false);
-                setError(false);
-            })
-            .catch(err => {
-                setLoading(false);
-                setError(true);
-                console.log(err);
-            });
+    useEffect(async () => {
+        try {
+            const res = await userService.getUsers();
+            setUserData(res.data);
+        } catch (e) {
+            setError(true);
+        }
     }, []);
 
     return <div>
         <h1>Users</h1>
-        <ShouldRender cond={loading}>
-            <Loader />
-        </ShouldRender>
         <ShouldRender cond={error}>
             <Error />
         </ShouldRender>
-        {users.map(user => <User key={user.login} user={user} />)}
+        {userData.data.map(user => <User user={user} />)}
     </div>
+
 }
 
 export default UserList;

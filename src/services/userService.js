@@ -45,4 +45,19 @@ const getUserFromStorage = () => {
     return JSON.parse(data);
 }
 
-export default { login, saveUser, register, update, getUser, getUserFromStorage };
+const getUsers = () => {
+    const userFromLocalStorage = localStorage.getItem('user');
+    const json = JSON.parse(userFromLocalStorage) || {};
+    const token = json.token;
+    const headers = {
+        authorization: `Bearer ${token}`
+    };
+
+    return axios.get('/api/users/page/0/size/100', { headers });
+}
+
+export default {
+    login, saveUser, register,
+    update, getUser, getUserFromStorage,
+    getUsers
+};
