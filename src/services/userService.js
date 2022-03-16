@@ -43,8 +43,13 @@ const getUserFromStorage = () => {
     return JSON.parse(data);
 }
 
-const getUsers = (page, size) => {
-    return axios.get(`/api/users/page/${page}/size/${size}`, { headers: getHeaders() });
+const getUsers = (page, size, search, degree) => {
+    let url = `/api/users/page/${page}/size/${size}?name=${search}`;
+    if (degree !== '')
+        url = `${url}&degree=${degree}`
+    return axios.get(url, {
+        headers: getHeaders()
+    });
 }
 
 export default {

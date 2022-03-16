@@ -1,4 +1,5 @@
 import UserIcon from '../img/user-icon.jpeg';
+import ShouldRender from '../utils/ShouldRender';
 
 const Degree = [
     'BE/BTech',
@@ -23,11 +24,13 @@ const User = ({ user }) => {
                 <div>
                     <i className="fa fa-envelope"></i>   {user.email}
                 </div>
-                <div>
-                    <i className="fa fa-graduation-cap"></i>
-                    <span>{Degree[user.degree]}</span>
-                    <span>{Qualification[user.qualification]}</span>
-                </div>
+                <ShouldRender cond={user.degree || user.qualification}>
+                    <div>
+                        <i className="fa fa-graduation-cap"></i>
+                        <span>{Degree[user.degree]}</span>
+                        <span>{Qualification[user.qualification]}</span>
+                    </div>
+                </ShouldRender>
             </div>
             <div className="card-footer">
                 <button className="btn btn-danger">

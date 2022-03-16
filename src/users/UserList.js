@@ -10,18 +10,20 @@ const UserList = () => {
     const [error, setError] = useState(false);
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(5);
+    const [search, setSearch] = useState('');
+    const [degree, setDegree] = useState('');
     const [userData, setUserData] = useState({ data: [], metadata: {} });
     const navigate = useNavigate();
 
     useEffect(async () => {
         try {
-            const res = await userService.getUsers(page, size);
+            const res = await userService.getUsers(page, size, search, degree);
             setUserData(res.data);
         } catch (e) {
             if (e.message.indexOf('401') > -1) navigate('/login');
             else setError(true);
         }
-    }, [page, size]);
+    }, [page, size, search, degree]);
 
     const prev = () => {
         setPage(page - 1);
@@ -61,11 +63,36 @@ const UserList = () => {
         </div>
     </div>
 
+    const onKeyPress = (evt) => {
+        if (evt.charCode === 13) {
+            setSearch(evt.target.value);
+        }
+    }
+
+    const onDegreeChange = (evt) => {
+        setDegree(evt.target.value);
+    }
+
     return <div>
         <h1>Users</h1>
         <ShouldRender cond={error}>
             <Error />
         </ShouldRender>
+        <div className="row m-3">
+            <div className="col-md-5">
+                {/* <i className="fa fa-search"></i> */}
+                <input onKeyPress={onKeyPress} placeholder="Enter Name" type="text" className="form-control">
+                </input>
+
+                <select value={degree} onChange={onDegreeChange} className="form-control">
+                    <option value="">Degree</option>
+                    <option value="0">BE/BTech</option>
+                    <option value="1">BCom</option>
+                    <option value="2">BSc</option>
+                    <option value="3">Others</option>
+                </select>
+            </div>
+        </div>
         <Pagination />
         {userData.data.map(user => <User user={user} />)}
         <Pagination />
