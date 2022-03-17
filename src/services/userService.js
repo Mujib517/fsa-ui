@@ -54,8 +54,18 @@ const getUsers = (page, size, search, degree, sort, sortDir) => {
     });
 }
 
+const logout = () => {
+    localStorage.removeItem('user');
+}
+
+const isLoggedIn = () => {
+    return !!localStorage.getItem('user');
+}
+
 export default {
     login, saveUser, register,
     update, getUser, getUserFromStorage,
-    getUsers
+    getUsers,
+    logout,
+    isLoggedIn
 };

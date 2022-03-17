@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ShouldRender from './utils/ShouldRender';
 import userService from './services/userService';
 import { useNavigate } from 'react-router-dom';
+import UserContext from './context/UserContext';
 
 const Login = () => {
     const [user, setUser] = useState({ email: '', password: '' });
     const [error, setError] = useState(false);
     const navigate = useNavigate();
+
+    const { setLogIn } = useContext(UserContext);
 
     const onTextChange = (e) => {
         const newUser = { ...user, [e.target.name]: e.target.value };
@@ -17,8 +20,8 @@ const Login = () => {
         try {
             const res = await userService.login(user);
             const userInfo = res.data;
-            console.log(userInfo);
             userService.saveUser(userInfo);
+            setLogIn(true);
             if (userInfo.role === 0)
                 navigate('/users/update');
             else
