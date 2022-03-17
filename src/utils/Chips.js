@@ -32,7 +32,7 @@ class Chips extends React.Component {
         return <div>
             <div>
                 {this.state.skills.map((skill, i) => {
-                    return <span className="chip">
+                    return <span key={skill} className="chip">
                         <span>{skill}</span>
                         <i onClick={() => this.onRemove(i)} className="fa fa-close"></i>
                     </span>

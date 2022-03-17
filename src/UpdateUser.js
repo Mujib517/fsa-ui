@@ -68,22 +68,22 @@ class UpdateUser extends Component {
                 <Error />
             </ShouldRender>
             <ShouldRender cond={this.state.success}>
-                <div class="alert alert-success">Successfully Updated</div>
+                <div className="alert alert-success">Successfully Updated</div>
             </ShouldRender>
-            <div class="mb-3">
+            <div className="mb-3">
                 <h3>Update Profile</h3>
                 <hr />
             </div>
-            <div class="mb-3">
-                <label for="fName" className="form-label">Firstname</label>
-                <input value={firstName} onChange={this.onValueChange} name="firstName" id="fName" type="text" class="form-control" />
+            <div className="mb-3">
+                <label htmlFor="fName" className="form-label">Firstname</label>
+                <input value={firstName} onChange={this.onValueChange} name="firstName" id="fName" type="text" className="form-control" />
             </div>
-            <div class="mb-3">
-                <label for="lName" className="form-label">Firstname</label>
-                <input value={lastName} onChange={this.onValueChange} name="lastName" id="fName" type="text" class="form-control" />
+            <div className="mb-3">
+                <label htmlFor="lName" className="form-label">Firstname</label>
+                <input value={lastName} onChange={this.onValueChange} name="lastName" id="fName" type="text" className="form-control" />
             </div>
-            <div class="mb-3">
-                <label for="qualification" className="form-label">Qualification</label>
+            <div className="mb-3">
+                <label htmlFor="qualification" className="form-label">Qualification</label>
                 <select value={qualification} onChange={this.onValueChange} name="qualification" className="form-control">
                     <option value="">--Select--</option>
                     <option value="0">10+2</option>
@@ -91,8 +91,8 @@ class UpdateUser extends Component {
                     <option value="2">PG</option>
                 </select>
             </div>
-            <div class="mb-3">
-                <label for="degree" className="form-label">Degree</label>
+            <div className="mb-3">
+                <label htmlFor="degree" className="form-label">Degree</label>
                 <select value={degree} onChange={this.onValueChange} name="degree" className="form-control">
                     <option value="">--Select--</option>
                     <option value="0">BE/BTech</option>
@@ -101,11 +101,11 @@ class UpdateUser extends Component {
                     <option value="3">Others</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
                 <label className="form-label">Skills</label>
                 <Chips skills={skills} onSkillsChange={this.onSkillsChange} />
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
                 <button onClick={this.onUpdate} className="btn btn-danger btn-sm">Update</button>
             </div>
         </div>

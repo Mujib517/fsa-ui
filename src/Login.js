@@ -36,15 +36,15 @@ const Login = () => {
             </div>
         </ShouldRender>
         <h1>Login</h1>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input onChange={onTextChange} name="email" id="email" type="email" class="form-control" />
+        <div className="mb-3">
+            <label htmlFor="email" className="form-label">Email</label>
+            <input onChange={onTextChange} name="email" id="email" type="email" className="form-control" />
         </div>
-        <div class="mb-3">
-            <label for="pwd" class="form-label">Password</label>
-            <input onChange={onTextChange} name="password" id="pwd" type="password" class="form-control" />
+        <div className="mb-3">
+            <label htmlFor="pwd" className="form-label">Password</label>
+            <input onChange={onTextChange} name="password" id="pwd" type="password" className="form-control" />
         </div>
-        <div class="mb-3">
+        <div className="mb-3">
             <button onClick={onLogin} className="btn btn-primary">Login</button>
         </div>
     </div>

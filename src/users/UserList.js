@@ -55,7 +55,7 @@ const UserList = () => {
                 <i className="fa fa-arrow-left"></i>
             </button>
         </div>
-        <div class="col-md-2">
+        <div className="col-md-2">
             <span>Page {page + 1} of {userData.metadata.totalPages}</span>
         </div>
         <div className="col-md-1">
@@ -83,41 +83,43 @@ const UserList = () => {
         // setSort(evt.target.value);
     }
 
+    const Filters = () => <div className="row m-3">
+        <div className="col-md-3">
+            {/* <i className="fa fa-search"></i> */}
+            <input onKeyPress={onKeyPress} placeholder="Enter Name" type="text" className="form-control">
+            </input>
+        </div>
+        <div className="col-md-2">
+            <select value={degree} onChange={onDegreeChange} className="form-control">
+                <option value="">Degree</option>
+                <option value="0">BE/BTech</option>
+                <option value="1">BCom</option>
+                <option value="2">BSc</option>
+                <option value="3">Others</option>
+            </select>
+        </div>
+        <div className="col-md-2">
+
+            <select value={`${sort} ${sortDir}`} onChange={onSortChange} className="form-control">
+                <option value="">Sort</option>
+                <option value="updatedAt 1">updatedAt</option>
+                <option value="updatedAt -1">updatedAt DESC</option>
+                <option value="firstName 1">firstName</option>
+                <option value="firstName -1">firstName DESC</option>
+                <option value="lastName 1">lastName</option>
+                <option value="lastName -1">lastName DESC</option>
+            </select>
+        </div>
+    </div>
+
     return <div>
         <h1>Users</h1>
         <ShouldRender cond={error}>
             <Error />
         </ShouldRender>
-        <div className="row m-3">
-            <div className="col-md-3">
-                {/* <i className="fa fa-search"></i> */}
-                <input onKeyPress={onKeyPress} placeholder="Enter Name" type="text" className="form-control">
-                </input>
-            </div>
-            <div className="col-md-2">
-                <select value={degree} onChange={onDegreeChange} className="form-control">
-                    <option value="">Degree</option>
-                    <option value="0">BE/BTech</option>
-                    <option value="1">BCom</option>
-                    <option value="2">BSc</option>
-                    <option value="3">Others</option>
-                </select>
-            </div>
-            <div className="col-md-2">
-
-                <select value={`${sort} ${sortDir}`} onChange={onSortChange} className="form-control">
-                    <option value="">Sort</option>
-                    <option value="updatedAt 1">updatedAt</option>
-                    <option value="updatedAt -1">updatedAt DESC</option>
-                    <option value="firstName 1">firstName</option>
-                    <option value="firstName -1">firstName DESC</option>
-                    <option value="lastName 1">lastName</option>
-                    <option value="lastName -1">lastName DESC</option>
-                </select>
-            </div>
-        </div>
+        <Filters />
         <Pagination />
-        {userData.data.map(user => <User user={user} />)}
+        {userData.data.map(user => <User key={user.email} user={user} />)}
         <Pagination />
     </div >
 

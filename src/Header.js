@@ -19,10 +19,10 @@ function Header() {
                 </li>
             </ul>
             <div>
-                <Link to="/register" class="btn btn-sm btn-danger">Register</Link>=
+                <Link to="/register" className="btn btn-sm btn-danger">Register</Link>=
             </div>
             <div>
-                <Link to="/login" class="btn btn-sm btn-danger">Login</Link>
+                <Link to="/login" className="btn btn-sm btn-danger">Login</Link>
             </div>
         </div>
     </nav>
