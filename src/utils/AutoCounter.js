@@ -1,5 +1,4 @@
 import { Component } from "react";
-import Header from "../Header";
 
 class AutoCounter extends Component {
 

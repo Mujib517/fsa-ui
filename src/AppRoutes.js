@@ -9,7 +9,6 @@ import Footer from "./Footer";
 import Register from "./Register";
 import Login from "./Login";
 import UpdateUser from "./UpdateUser";
-import AutoCounter from "./utils/AutoCounter";
 import CounterWithHooks from "./utils/CounterWithHooks";
 
 const AppRoutes = () => <BrowserRouter>
