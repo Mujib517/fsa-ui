@@ -43,7 +43,7 @@ class UpdateUser extends Component {
 
     onUpdate = async () => {
         try {
-            const fd = FormData();
+            const fd = new FormData();
             for (let key in this.state.user) {
                 fd.append(key, this.state.user[key]);
             }
