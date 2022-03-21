@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import UserIcon from '../img/user-icon.jpeg';
 import ShouldRender from '../utils/ShouldRender';
 
@@ -21,16 +22,18 @@ const User = ({ user }) => {
             <img width="150" height="220" className="card-img-top" src={UserIcon}></img>
             <div className="card-header">{user.firstName} {user.lastName}</div>
             <div className="card-body">
-                <div>
-                    <i className="fa fa-envelope"></i>   {user.email}
-                </div>
-                <ShouldRender cond={user.degree || user.qualification}>
+                <Link to={`/users/${user.email}`}>
                     <div>
-                        <i className="fa fa-graduation-cap"></i>
-                        <span>{Degree[user.degree]}</span>
-                        <span>{Qualification[user.qualification]}</span>
+                        <i className="fa fa-envelope"></i>   {user.email}
                     </div>
-                </ShouldRender>
+                    <ShouldRender cond={user.degree || user.qualification}>
+                        <div>
+                            <i className="fa fa-graduation-cap"></i>
+                            <span>{Degree[user.degree]}</span>
+                            <span>{Qualification[user.qualification]}</span>
+                        </div>
+                    </ShouldRender>
+                </Link>
             </div>
             <div className="card-footer">
                 <button className="btn btn-danger">
@@ -40,7 +43,7 @@ const User = ({ user }) => {
                 </button>
             </div>
         </div>
-    </div>
+    </div >
 }
 
 export default User;

@@ -10,6 +10,7 @@ import Register from "./Register";
 import Login from "./Login";
 import UpdateUser from "./UpdateUser";
 import CounterWithHooks from "./utils/CounterWithHooks";
+import UserDetail from "./UserDetail";
 
 const AppRoutes = () => <BrowserRouter>
     <Header />
@@ -19,6 +20,7 @@ const AppRoutes = () => <BrowserRouter>
         <Route path="/contact" element={<Contact />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/users/update" element={<UpdateUser />} />
+        <Route path="/users/:email" element={<UserDetail />} />
         {/* <Route path="*" element={<Home />} /> */}
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
         <Route path="/register" element={<Register />} />
