@@ -31,7 +31,11 @@ const saveUser = (user) => {
 }
 
 const update = (user) => {
-    return axios.put(`/api/users/${user.email}`, user, { headers: getHeaders() });
+    const headers = {
+        ...getHeaders(),
+        'content-type': 'multipart/form-data'
+    }
+    return axios.put(`/api/users/${user.get('email')}`, user, { headers });
 };
 
 const getUser = (email) => {

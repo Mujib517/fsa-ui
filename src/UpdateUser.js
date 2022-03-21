@@ -43,7 +43,12 @@ class UpdateUser extends Component {
 
     onUpdate = async () => {
         try {
-            await userService.update(this.state.user);
+            const fd = FormData();
+            for (let key in this.state.user) {
+                fd.append(key, this.state.user[key]);
+            }
+
+            await userService.update(fd);
             this.setState({ error: false, success: true });
 
             setTimeout(() => {
@@ -58,6 +63,11 @@ class UpdateUser extends Component {
 
     onSkillsChange = (skills) => {
         const user = { ...this.state.user, skills };
+        this.setState({ user });
+    }
+
+    onFileChange = (evt) => {
+        const user = { ...this.state.user, resume: evt.target.files[0] }
         this.setState({ user });
     }
 
@@ -105,6 +115,10 @@ class UpdateUser extends Component {
                 <label className="form-label">Skills</label>
                 <Chips skills={skills} onSkillsChange={this.onSkillsChange} />
             </div>
+            <div className="mb-3">
+                <input type="file" onChange={this.onFileChange} className="form-control" />
+            </div>
+
             <div className="mb-3">
                 <button onClick={this.onUpdate} className="btn btn-danger btn-sm">Update</button>
             </div>
