@@ -3,6 +3,7 @@ import userService from './services/userService';
 import Chips from './utils/Chips';
 import ShouldRender from './utils/ShouldRender';
 import Error from './utils/Error';
+import PDFViewer from './utils/PDFViewer';
 
 class UpdateUser extends Component {
 
@@ -122,6 +123,7 @@ class UpdateUser extends Component {
             <div className="mb-3">
                 <button onClick={this.onUpdate} className="btn btn-danger btn-sm">Update</button>
             </div>
+            <PDFViewer filename={this.state.user.resume} />
         </div>
     }
 
