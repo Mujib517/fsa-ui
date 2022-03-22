@@ -4,6 +4,7 @@ import UserContext from './context/UserContext';
 import userService from './services/userService';
 import ShouldRender from './utils/ShouldRender';
 import { useNavigate } from 'react-router-dom';
+import IfElse from './utils/IfElse';
 
 function Header() {
     const { isLoggedIn, setLogIn } = useContext(UserContext);
@@ -32,17 +33,17 @@ function Header() {
                     <Link className="nav-link" to="/contact">Contact</Link>
                 </li>
             </ul>
-            <ShouldRender cond={!isLoggedIn}>
-                <div>
-                    <Link to="/register" className="btn btn-sm btn-danger">Register</Link>=
-                </div>
-                <div>
-                    <Link to="/login" className="btn btn-sm btn-danger">Login</Link>
-                </div>
-            </ShouldRender>
-            <ShouldRender cond={isLoggedIn}>
+            <IfElse cond={isLoggedIn}>
                 <button onClick={onLogout} className="btn btn-sm btn-danger">Logout</button>
-            </ShouldRender>
+                <>
+                    <div>
+                        <Link to="/register" className="btn btn-sm btn-danger">Register</Link>=
+                    </div>
+                    <div>
+                        <Link to="/login" className="btn btn-sm btn-danger">Login</Link>
+                    </div>
+                </>
+            </IfElse>
         </div>
     </nav>
 }
