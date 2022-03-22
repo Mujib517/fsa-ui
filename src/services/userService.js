@@ -31,10 +31,7 @@ const saveUser = (user) => {
 }
 
 const update = (user) => {
-    const headers = {
-        ...getHeaders()
-    }
-    return axios.put(`/api/users/${user.get('email')}`, user, { headers });
+    return axios.put(`/api/users/${user.get('email')}`, user, { headers: getHeaders() });
 };
 
 const getUser = (email) => {
